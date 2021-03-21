@@ -160,14 +160,14 @@ def create(request):
             Activity.objects.filter(
                 user__username__contains=request.POST.get('user')).values_list(
                 'duration', flat=True))
-        # print(all_duration_list)
+        print(all_duration_list)
         all_duration_int = []
         for q in all_duration_list:
             q = int(q)
             all_duration_int.append(q)
         all_duration = sum(all_duration_int) + int(
             request.POST.get('duration'))
-        # print(all_duration)
+        print(all_duration)
         Activity.all_duration = all_duration
 
         # высчитываем среднюю скорость #
